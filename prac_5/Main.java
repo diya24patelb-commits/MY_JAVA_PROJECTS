@@ -1,47 +1,48 @@
-abstract class Shape {
+abstract class Media {
 
-    abstract double area();
+    String title;
+    int daysLate;
+
+    Media(String title, int daysLate) {
+        this.title = title;
+        this.daysLate = daysLate;
+    }
+
+    abstract double lateFee();
 }
 
-class Circle extends Shape {
 
-    double radius;
+// Book class
+class Book extends Media {
 
-    Circle(double radius) {
-        this.radius = radius;
-    }
-    double area() {
-        return Math.PI * radius * radius;
-    }
-}
-
-class Rectangle extends Shape {
-
-    double length;
-    double width;
-
-    Rectangle(double length, double width) {
-        this.length = length;
-        this.width = width;
+    Book(String title, int daysLate) {
+        super(title, daysLate);
     }
 
-    double area() {
-        return length * width;
+    double lateFee() {
+        return daysLate * 2;
     }
 }
 
-class Triangle extends Shape {
+class Movie extends Media {
 
-    double base;
-    double height;
-
-    Triangle(double base, double height) {
-        this.base = base;
-        this.height = height;
+    Movie(String title, int daysLate) {
+        super(title, daysLate);
     }
 
-    double area() {
-        return 0.5 * base * height;
+    double lateFee() {
+        return daysLate * 5;
+    }
+}
+
+class Game extends Media {
+
+    Game(String title, int daysLate) {
+        super(title, daysLate);
+    }
+
+    double lateFee() {
+        return daysLate * 10;
     }
 }
 
@@ -49,30 +50,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Shape[] shapes = {
-            new Circle(5),
-            new Rectangle(10, 4),
-            new Triangle(6, 8),
-            new Circle(3)
+        Media[] items = {
+            new Book("Java Programming", 3),
+            new Movie("Avengers", 2),
+            new Game("GTA", 4),
+            new Book("DSA", 5)
         };
 
         double total = 0;
-        double largest = 0;
+        double highest = 0;
 
-        for (Shape s : shapes) {
+        for (Media m : items) {
 
-            double a = s.area();
+            double fee = m.lateFee();
 
-            System.out.println("Area = " + a);
+            System.out.println(
+                m.title + " -> Late Fee = Rs. " + fee
+            );
 
-            total += a;
+            total = total + fee;
 
-            if (a > largest) {
-                largest = a;
+            if (fee > highest) {
+                highest = fee;
             }
         }
 
-        System.out.println("Total Area = " + total);
-        System.out.println("Largest Area = " + largest);
+        System.out.println("-------------------------");
+        System.out.println("Total Late Fees = Rs. " + total);
+        System.out.println("Highest Late Fee = Rs. " + highest);
     }
 }
