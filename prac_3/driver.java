@@ -1,12 +1,12 @@
-public class Driver {
+public class driver{
     public static void main(String[] args) {
 
-        Card[] cards = {
-            new Card("Ace", "Spades"),
-            new Card("Queen", "Hearts"),
-            new Card("King", "Diamonds"),
-            new Card("King", "Diamonds"),   // Duplicate
-            new Card("10", "Clubs")
+        card[] cards = {
+            new card("Ace", "Spades"),
+            new card("Queen", "Hearts"),
+            new card("King", "Diamonds"),
+            new card("King", "Diamonds"),   // Duplicate
+            new card("10", "Clubs")
         };
 
         boolean duplicateFound = false;

@@ -1,4 +1,4 @@
-public class Driver {
+public class drive{
     public static void main(String[] args) {
 
         Point[] points = {

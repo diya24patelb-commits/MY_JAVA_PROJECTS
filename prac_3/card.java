@@ -1,10 +1,10 @@
 import java.util.Objects;
 
-public class Card {
+public class card {
     private String rank;
     private String suit;
 
-    public Card(String rank, String suit) {
+    public card(String rank, String suit) {
         this.rank = rank;
         this.suit = suit;
     }
@@ -19,10 +19,10 @@ public class Card {
         if (this == obj)
             return true;
 
-        if (!(obj instanceof Card))
+        if (!(obj instanceof card))
             return false;
 
-        Card c = (Card) obj;
+        card c = (card) obj;
         return rank.equals(c.rank) && suit.equals(c.suit);
     }
 

@@ -1,4 +1,4 @@
-public class Driver {
+public class driver3 {
     public static void main(String[] args) {
 
         Fraction f1 = new Fraction(1, 2);
